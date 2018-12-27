@@ -10,7 +10,18 @@
     deleted = red
     untracked = yellow
 [user]
-    name = JarrodCTaylor
-    email = jarrod.c.taylor@gmail.com
+	name = Michael Johnson
+	email = mb.johnsonbece@gmail.com
 [push]
     default = matching
+[core]
+	editor = vim
+[alias]
+    co = checkout
+    cb = checkout -b
+    ga = git commit --amend
+    gp = git push origin
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    publish = "!git push origin $(git branch-name)"
+    pull-rebase = "!git pull origin $(git branch-name) --rebase"
+

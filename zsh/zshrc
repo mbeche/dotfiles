@@ -166,8 +166,8 @@ alias tmuxp='tmux attach -t pair-session || tmux new-session -t host-session -s 
 # If we cd into a directory that is named the same as a virtualenv
 # auto activate that virtualenv
 # -------------------------------------------------------------------
-[[ -a /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
-[[ -a /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+# [[ -a /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
+# [[ -a /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 workon_virtualenv() {
   if [[ -d .git ]]; then
@@ -224,5 +224,18 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export GOPATH=~/Projects/go
 export PATH=$PATH:$GOPATH/bin
 # >>1
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+#virtualenvwrapper
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/Users/imtapps/.pyenv/versions/3.4.8/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=/Users/imtapps/.pyenv/versions/3.4.8/bin/virtualenv
+# source /Users/imtapps/.pyenv/versions/3.4.8/bin/virtualenvwrapper.sh
+
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/Users/imtapps/.pyenv:$PATH"
 
 # EOF
