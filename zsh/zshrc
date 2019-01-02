@@ -169,12 +169,14 @@ alias tmuxp='tmux attach -t pair-session || tmux new-session -t host-session -s 
 # [[ -a /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
 # [[ -a /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
 workon_virtualenv() {
   if [[ -d .git ]]; then
      VENV_CUR_DIR="${PWD##*/}"
-     if [[ -a ~/.virtualenvs/$VENV_CUR_DIR ]]; then
-       deactivate > /dev/null 2>&1
-       source ~/.virtualenvs/$VENV_CUR_DIR/bin/activate
+     if [[ -a ~/.pyenv/versions/$VENV_CUR_DIR ]]; then
+       pyenv deactivate > /dev/null 2>&1
+       pyenv activate $VENV_CUR_DIR
      fi
   fi
 }
